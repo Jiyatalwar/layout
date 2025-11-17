@@ -1,0 +1,229 @@
+@import "tailwindcss";
+
+/* Reset and layout fixes: remove default margins and avoid horizontal scrolling */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+    -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /* Prevent unwanted horizontal scroll caused by absolutely positioned or oversized elements */
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-barlow), sans-serif;
+}
+
+[data-animate] {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+/* body css end here  */
+
+/* about us section start here  */
+
+                           /* slide left css */
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slideInLeft {
+  animation: slideInLeft 3s ease-out forwards;
+}
+
+                       /* slide left css end here  */
+
+
+                         /* slide right css start  */
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100%); 
+    opacity: 0; 
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1; 
+  }
+}
+
+.slideInRight {
+  animation: slideInRight 3s ease-out forwards; 
+}
+.about img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+                       /* slide right css end here */
+
+
+.about-section {
+    padding-top: 4rem; 
+    padding-bottom: 4rem; 
+    background-color: #ffffff; 
+    position: relative;
+    overflow: hidden; 
+}
+/* circle bhide the content */
+.blue-blended-circle {
+    position: absolute;
+    width: 548px;
+    height: 548px;
+    border-radius: 50%; 
+    background-color: #3A71FF; 
+    opacity: 0.2; 
+    top: -190px;       
+    right: -50px;
+    filter: blur(48px);
+    z-index: 0; 
+}
+
+.about-section > .container {
+    position: relative;
+    z-index: 1;
+}
+/* circle behind the content end here */
+
+/* about section end here  */
+
+
+/* capability section start here */
+.Capabilty-section {
+    padding-top: 4rem; 
+    padding-bottom: 4rem; 
+    background-color: #ffffff; 
+    position: relative; 
+    overflow: hidden; 
+}
+  /* cyan circle behind content  */
+.pink-blended-circle {
+    position: absolute;
+    width: 600px;
+    height: 548px;
+    border-radius: 50%;
+    background-color: #00ccff7a;
+    opacity: 0.2;
+  top: 20px;
+    left: -50px;      /* Changed from right to left */
+    filter: blur(48px);
+    z-index: 0;
+}
+.Capabilty-section > .container {
+    position: relative;
+    z-index: 1;
+}
+/* cyan circle end here  */
+
+
+
+/* white and blue line moving line start here */
+@keyframes moveLine {
+  0% {
+    left: -20%;  
+    width: 10%;  
+  }
+  50% {
+    left: 100%;  
+    width: 10%; 
+  }
+  100% {
+    left: 120%; 
+    width: 10%; 
+  }
+}
+
+.moving-white-line {
+  animation: moveLine 5s linear infinite; 
+}
+.relative.w-full.h-1.bg-blue-500 {
+  position: relative;
+  overflow: hidden;
+}
+/* white and blue line moving end here  */
+
+
+/*zoom in effect for about us */
+@keyframes zoomSlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.zoom-slide-down {
+  animation: zoomSlideDown 1s ease-out forwards;
+}
+/* Initial state (before zoom-in) */
+.capability-item {
+  transform: scale(0.9);
+  opacity: 0;
+  transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+}
+
+.capability-item.zoom-in {
+  transform: scale(1); 
+  opacity: 1; 
+}
+
+.capability-item:hover {
+  transform: scale(1.05);
+   transition: transform 0.3s ease-in-out;
+}
+/* capability section end here  */
+
+
+/* Service cards reveal (scroll into view) */
+.service-item {
+  transform: translateY(18px) scale(0.97);
+  opacity: 0;
+  transition: transform 0.6s cubic-bezier(.2,.9,.2,1), opacity 0.6s ease-out;
+}
+.service-item.zoom-in {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+.service-item:hover {
+  transform: translateY(0) scale(1.03);
+  transition: transform 0.25s ease-in-out;
+}
+/*  benefits section trastion zoom_slide-down */
+@keyframes moveInRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0; 
+  }
+  100% {
+    transform: translateX(0); 
+    opacity: 1;
+  }
+}
+
+/* Apply the animation to elements with the class 'moveInRight' */
+.moveInRight {
+  animation: moveInRight 5s ease-out forwards; /* 1s duration, ease-out timing function */
+}
+
+/*  */
+
+
+
+
